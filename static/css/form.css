@@ -1,0 +1,38 @@
+#form {
+    width: 340px;
+}
+#form p {
+    max-width: 240px;
+    min-width: 240px;
+    text-align: right;
+    margin-right: 0;
+}
+#form span {
+    margin-right: 12px;
+}
+#form input {
+    text-align: center;
+}
+#form button {
+    float: right;
+    margin: 30px 0px;
+}
+
+table {
+    width: 640px;
+    color: #aaaaaa;
+    margin: 0 100px;
+}
+table th {
+    text-align: left;
+    min-width: 40px;
+}
+table td {
+    max-width: 120px;
+}
+table thead {
+    border-bottom: 1px solid #666666;
+}
+table tbody tr:nth-of-type(1) {
+    background-color: #333;
+}

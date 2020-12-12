@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="heading">Arcane Cache</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">CR</th>
+            <th scope="col">AC</th>
+            <th scope="col">ATT</th>
+            <th scope="col">DC</th>
+            <th scope="col">Health</th>
+            <th scope="col">Damage</th>
+            <th scope="col">XP</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for monster in monster_data %}
+        <tr>
+        {% for stat in monster %}
+            <td>{{ stat }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% if toggle_more %}
+<p><a href="/archive">Load Primordial Archive</a></p>
+{% endif %}
+{% endblock %}

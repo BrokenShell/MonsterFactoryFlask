@@ -1,0 +1,163 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="heading">Altar of Summoning</h1>
+<form id="form" method="post" action="{{ url_for('summon') }}">
+<p><span>Name:</span><input name="monsterName" id="monsterName" autofocus placeholder="Monster's Name" value="" /></p>
+<p><span>Type:</span><select name="type" id="type">
+    <option value="Aberration">Aberration</option>
+    <option value="Beast">Beast</option>
+    <option value="Celestial">Celestial</option>
+    <option value="Construct">Construct</option>
+    <option value="Dragon">Dragon</option>
+    <option value="Elemental">Elemental</option>
+    <option value="Fey">Fey</option>
+    <option value="Fiend">Fiend</option>
+    <option value="Giant">Giant</option>
+    <option value="Humanoid">Humanoid</option>
+    <option value="Monstrosity">Monstrosity</option>
+    <option value="Ooze">Ooze</option>
+    <option value="Plant">Plant</option>
+    <option value="Swarm">Swarm</option>
+    <option value="Undead">Undead</option>
+    <option id="type_id" hidden="hidden" value="{{ type_id }}"></option>
+</select></p>
+<p><span>Challenge Rating:</span><select name="cr" id="cr">
+    <option value="-3">0</option>
+    <option value="-2">1/8</option>
+    <option value="-1">1/4</option>
+    <option value="0">1/2</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option id="rand_cr" hidden="hidden" value="{{ rand_cr }}"></option>
+</select></p>
+<p><span>Armor Class:</span><select name="ac" id="ac">
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+</select></p>
+<p><span>Attack Bonus:</span><select name="att" id="att">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+</select></p>
+<p><span>Save DC:</span><select name="dc" id="dc">
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+</select></p>
+<button type="submit" id="submit" name="submit">Summon Monster</button>
+<span class="clear"></span>
+</form>
+<blockquote style="margin-top: 120px;">
+<p>
+    <b>Disclaimer & Warning!</b> The creator of this device is not responsible for
+    spell misfires, rituals gone awry or random monsters running amok in the vicinity.
+    Void where prohibited, some restrictions apply, valid only while supplies last.
+    <i>Use at your own risk</i>, and never-ever feed a newly summoned monster
+    human flesh after June. You have been warned. See sigil for detailed instructions.
+</p>
+</blockquote>
+<script type="text/javascript">
+const Stats = {
+    AC: [
+        8, 9, 10, 11,
+        11, 12, 13, 14, 14, 15, 15, 16, 16, 17,
+        17, 17, 18, 18, 18, 18, 19, 19, 19, 19,
+        19, 20, 20, 20, 20, 20, 21, 21, 21, 22,
+    ],
+    ATT: [
+        0, 1, 2, 3,
+        3, 3, 4, 5, 5, 6, 6, 7, 7, 7,
+        8, 8, 8, 9, 9, 9, 9, 10, 10, 10,
+        11, 11, 11, 12, 12, 12, 13, 13, 13, 14,
+    ],
+    DC: [
+        13, 13, 13, 13,
+        13, 13, 13, 14, 15, 15, 15, 16, 16, 16,
+        17, 17, 18, 18, 18, 18, 19, 19, 19, 19,
+        20, 20, 20, 21, 21, 21, 22, 22, 23, 24,
+    ],
+}
+function update() {
+    const CR = parseInt(document.getElementById("cr").value);
+    const cr_key = CR + 3;
+    document.getElementById("ac").selectedIndex = Stats.AC[cr_key] - 8;
+    document.getElementById("att").selectedIndex = Stats.ATT[cr_key];
+    document.getElementById("dc").selectedIndex = Stats.DC[cr_key] - 13;
+}
+const rand_cr = document.getElementById("rand_cr").value;
+document.getElementById("cr").selectedIndex = 3 + parseInt(rand_cr);
+const type_id = document.getElementById("type_id").value;
+document.getElementById("type").selectedIndex = parseInt(type_id);
+document.getElementById("cr").addEventListener("change", update);
+document.getElementById("monsterName").addEventListener("keydown", function(e) {
+    if (e.which==13) e.preventDefault();
+});
+update();
+</script>
+{% endblock %}
