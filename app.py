@@ -3,7 +3,7 @@ import re
 from collections import deque
 
 from Fortuna import distribution_range, random_below, middle_gauss, \
-    front_linear, truffle_shuffle, front_poisson
+    truffle_shuffle, front_poisson
 from flask import Flask, render_template, request
 
 from monster_data import damage_lookup, health_lookup, xp_lookup
