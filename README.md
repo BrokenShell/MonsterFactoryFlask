@@ -13,8 +13,9 @@ By Robert Sharp
 
 ## Developer Notes
 An issue came up in the virtual environment used for the hosting of this project: 
-pythonanywhere.com. Apparently the version of gcc used doesn't have full c++17 
-support. To solve the issue I implemented the std::clamp function, see below. 
+pythonanywhere.com. Apparently the version of gcc used by our host doesn't have 
+full c++17 support. To solve the issue I implemented the std::clamp function 
+myself, see below. 
 
 ```cpp
 template<typename T>
