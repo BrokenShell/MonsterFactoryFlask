@@ -1,5 +1,10 @@
 #form {
-    width: 340px;
+    width: 860px;
+    padding: 20px;
+    height: 310px;
+    background-image: url(/static/images/circle.png);
+    background-repeat: no-repeat;
+    background-position: right;
 }
 #form p {
     max-width: 240px;
@@ -14,8 +19,7 @@
     text-align: center;
 }
 #form button {
-    float: right;
-    margin: 30px 0px;
+    margin: 0px 220px;
 }
 
 table {
