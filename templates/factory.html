@@ -22,7 +22,7 @@
     <option id="type_id" hidden="hidden" value="{{ type_id }}"></option>
 </select></p>
 <p><span>Challenge Rating:</span><select name="cr" id="cr">
-    <option value="-3">0</option>
+    <option value="-3">1/16</option>
     <option value="-2">1/8</option>
     <option value="-1">1/4</option>
     <option value="0">1/2</option>
@@ -152,8 +152,10 @@ function update() {
 }
 const rand_cr = document.getElementById("rand_cr").value;
 document.getElementById("cr").selectedIndex = 3 + parseInt(rand_cr);
+
 const type_id = document.getElementById("type_id").value;
 document.getElementById("type").selectedIndex = parseInt(type_id);
+
 document.getElementById("cr").addEventListener("change", update);
 document.getElementById("monsterName").addEventListener("keydown", function(e) {
     if (e.which==13) e.preventDefault();
