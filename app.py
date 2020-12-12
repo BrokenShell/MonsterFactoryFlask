@@ -63,15 +63,8 @@ def get_cr_str(cr: int) -> str:
     return str(cr) if cr > 0 else cr_lookup[cr + 3]
 
 
-def create_monster(cr: int) -> tuple:
+def create_monster(name: str, cr: int) -> tuple:
     cr_key = cr + 3
-    name = re.sub(
-        r'[^A-ZÀ-Ýa-zà-ý 0-9$]', '', request.form.get("monsterName")
-    ).strip()
-    if name.lower() == name or name.upper() == name:
-        name = name.title()
-    if not name:
-        return monsters()
     return (
         name,
         request.form.get("type"),
@@ -90,9 +83,17 @@ def create_monster(cr: int) -> tuple:
 @app.route('/summon', methods=['POST'])
 def summon():
     cr = int(request.form.get("cr"))
+    name = re.sub(
+        r'[^A-ZÀ-Ýa-zà-ý 0-9$]', '', request.form.get("monsterName")
+    ).strip()
+    if not name:
+        return monsters()
+    if name.lower() == name or name.upper() == name:
+        name = name.title()
+
     with open("data/monsters.csv", 'a') as file:
         writer = csv.writer(file)
-        writer.writerow(create_monster(cr))
+        writer.writerow(create_monster(name, cr))
     return monsters()
 
 
