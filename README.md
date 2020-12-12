@@ -24,14 +24,18 @@ constexpr const T& clamp(const T& v, const T& lo, const T& hi) {
 ```
 
 ## Project Evolution
+### MonsterFactory v0.0.6: Monster Fixes
+- Updates Fortuna to the latest version
+- Fixes some small bugs
+
 ### MonsterFactory v0.0.5: More Monsters!
-- Adds the ability to load older monsters via the archive.
+- Adds the ability to load older monsters via the archive
 
 ### MonsterFactory v0.0.4: Premature Monster Summation Antidote
-- Fixes a bug that caused the form to post prematurely.
+- Fixes a bug that caused the form to post prematurely
 
 ### MonsterFactory v0.0.3: Monster Diversity Patch
-- Adds support for latin characters.
+- Adds support for latin characters
 
 ### MonsterFactory v0.0.2
 - Minimum Viable Product
