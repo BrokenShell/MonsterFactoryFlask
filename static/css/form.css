@@ -5,6 +5,7 @@
     background-image: url(/static/images/circle.png);
     background-repeat: no-repeat;
     background-position: right;
+    margin-bottom: 60px;
 }
 #form p {
     max-width: 240px;

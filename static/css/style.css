@@ -99,7 +99,7 @@ header h1 a:link, header h1 a:active, header h1 a:visited, header h1 a:hover {
     margin-bottom: 10px;
 }
 blockquote {
-    margin: 30px 60px 0;
+    margin: 0 60px 0;
     background-color: #252525;
     border: 1px solid #000;
     padding: 20px;
@@ -159,7 +159,7 @@ footer p {
     color: #777777;
     font-family: Monaco;
     font-size: .9em;
-    margin: 10px 100px;
+    margin: 10px 60px;
 }
 .right {
     float: right;
